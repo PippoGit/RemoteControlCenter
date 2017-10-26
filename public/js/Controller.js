@@ -1,4 +1,5 @@
 var ALLOW_LONGPRESS = 1;
+
 function Controller(id)
 {
   this.element = $("#" + id);
