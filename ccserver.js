@@ -1,12 +1,29 @@
 var express = require('express');
 var path = require('path');
 var osa = require('node-osascript');
+var config = require('./config/default.json');
 var app = express();
 
 app.use(express.static('public'));
 
 app.listen(3000, function () {
   console.log('Remote Control Center started on port 3000.');
+  console.log("Player: " + config.player);
+  console.log("To change main player: /player/<NAME>");
+  console.log("Supported players: iTunes, Spotify, vlc");
+  console.log("example: localhost/changeplayer/Spotify");
+});
+
+app.get('/changeplayer/:player', function (req, res) {
+  const fs = require('fs');
+  config.player = req.params.player;
+
+  fs.writeFile('./config/default.json', JSON.stringify(config), (err) => {
+      if (err) throw err;
+      console.log('Configuration file correctly changed. New player is ' + req.params.player);
+  });
+
+  res.send("Player setted to " + config.player);
 });
 
 app.get('/', function (req, res) {
@@ -54,11 +71,11 @@ function changeVolume(op) {
 
 function iTunes(cmd)
 {
-  osa.execute("if application \"iTunes\" is running then return \"1\"", function (err, result, raw) {
+  osa.execute("if application \"" + config.player + "\" is running then return \"1\"", function (err, result, raw) {
     if (err) return console.error(err);
 
     if(result)
-      osa.execute("tell application \"iTunes\" to " + cmd);
+      osa.execute("tell application \"" + config.player + "\" to " + cmd);
     else
       mediaFunction(cmd);
   });
@@ -77,7 +94,7 @@ function mediaFunction(cmd)
       osa.execute("tell application \"System Events\" to key code 123");
       break;
     case 'quit':
-      osa.execute("tell application \"iTunes\" to activate");
+      osa.execute("tell application \"" + config.player + "\" to activate");
       break;
 
     default:
