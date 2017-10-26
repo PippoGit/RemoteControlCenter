@@ -1,0 +1,160 @@
+body, html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f3f3f3;
+
+  margin: 0;
+  background: white;
+  /*
+  border-top: 20px solid black;
+  */
+}
+
+h1 {
+  color: black;
+
+  display: none;
+}
+
+#container {
+  background: white;
+  overflow: visible;
+  display: block;
+  width: calc(100% - 25px);
+  margin: 0 auto;
+  height: 100px;
+  /* padding: 5px; */
+  box-shadow: 0 0px 10px rgba(69, 69, 69, 0.23);
+  background: white;
+  margin: 1rem auto;
+  border-radius: 10px;
+  -webkit-user-select: none;
+  text-align: center;
+  margin-top: 10px;
+  box-shadow: 0 0px 0px rgba(69, 69, 69, 0.23);
+  margin-top: 50px;
+  height: auto;
+}
+
+.mediabutton {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: white;
+  border: 1px solid grey;
+  /* margin-left: 5px; */
+  margin-right: 0;
+  display: block;
+  margin: 0 auto;
+  /* margin-top: 5px; */
+  /* margin-bottom: 5px; */
+  /* margin-right: 5px; */
+}
+
+.mediabutton i {
+    color: grey;
+    margin-right: -3px;
+    margin-left: -3px;
+}
+
+#menu {
+  margin-top: 50px;
+  color: grey;
+  font-weight: bolder;
+  font-size: 15px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+#play {
+    /* margin-left: 0; */
+    /* margin-top: 5px; */
+    /* margin-bottom: 5px; */
+    position: absolute;
+    top: 50%;
+    margin-top: -60px;
+    left: 50%;
+    height: 120px;
+    width: 120px;
+    margin-left: -60px;
+}
+
+#volumeup {
+    margin-right: 0;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 30px;
+    width: 70px;
+    border: 0;
+    position: absolute;
+    /* top: 10; */
+    left: 65px;
+    /* top: 5px; */
+}
+
+#volumedown {
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 30px;
+    border: 0;
+    position: absolute;
+    bottom: 0;
+    left: 65px;
+    width: 70px;
+}
+
+#wheel
+{
+  border-radius: 50%;
+border: 1px solid grey;
+width: 200px;
+height: 200px;
+display: block;
+margin: 0 auto;
+overflow: hidden;
+position: relative;
+}
+
+#next {
+    margin-right: 0;
+    display: block;
+    margin: 0 auto;
+    /* margin-top: 5px; */
+    margin-bottom: 5px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    position: absolute;
+    /* top: 10; */
+    right: 8px;
+
+    top: 50%;
+    margin-top: -15px;
+    /* top: 5px; */
+}
+
+#before {
+    margin-right: 0;
+    display: block;
+    margin: 0 auto;
+    /* margin-top: 5px; */
+    margin-bottom: 5px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    position: absolute;
+    /* top: 10; */
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+    /* top: 5px; */
+}
