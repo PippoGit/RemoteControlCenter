@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  var timeout = 0;
   var cc = new Controller("container");
 
   cc.addButton("menu", iTunesStartStop);
