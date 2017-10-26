@@ -4,10 +4,10 @@ $(document).ready(function() {
 
   cc.addButton("menu", iTunesStartStop);
   cc.addButton("play", playPause);
-  cc.addButton("next", iTunesNextTrack, 1);
-  cc.addButton("before", iTunesPreviousTrack, 1);
-  cc.addButton("volumeup", increaseVolume, 1);
-  cc.addButton("volumedown", decreaseVolume, 1);
+  cc.addButton("next", iTunesNextTrack, ALLOW_LONGPRESS);
+  cc.addButton("before", iTunesPreviousTrack, ALLOW_LONGPRESS);
+  cc.addButton("volumeup", increaseVolume, ALLOW_LONGPRESS);
+  cc.addButton("volumedown", decreaseVolume, ALLOW_LONGPRESS);
 });
 
 function playPause()

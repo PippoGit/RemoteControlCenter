@@ -1,15 +1,16 @@
+var ALLOW_LONGPRESS = 1;
 function Controller(id)
 {
   this.element = $("#" + id);
   this.buttons = [];
 }
 
-Controller.prototype.addButton = function(id, action, SET_LONGPRESS = 0) {
+Controller.prototype.addButton = function(id, action, option = 0) {
   var button = $("#" + id);
 
   button.on('click tap', action);
 
-  if(SET_LONGPRESS)
+  if(option == ALLOW_LONGPRESS)
   {
     var timeout = 0;
     button.on('touchstart mousedown click tap', function(e){
