@@ -1,33 +1,13 @@
 $(document).ready(function() {
   var timeout = 0;
+  var cc = new Controller("container");
 
-  $("#menu").on('click tap', iTunesStartStop);
-  $("#play").on('click tap', playPause);
-  $("#next").on('click tap', iTunesNextTrack);
-  $("#before").on('click tap', iTunesPreviousTrack);
-  $("#volumeup").on('touchstart mousedown click tap', function(e){
-      increaseVolume();
-      if(e.type == "click")
-        return;
-      timeout = setInterval(function(){
-          increaseVolume();
-      }, 500);
-      return false;
-  });
-  $("#volumedown").on('touchstart mousedown click tap', function(e){
-      decreaseVolume();
-      if(e.type == "click")
-        return;
-      timeout = setInterval(function(){
-          decreaseVolume();
-      }, 500);
-      return false;
-  });
-
-  $("#volumeup, #volumedown").on('touchend mouseup touchcancel', function(){
-      clearInterval(timeout);
-      return false;
-  });
+  cc.addButton("menu", iTunesStartStop);
+  cc.addButton("play", playPause);
+  cc.addButton("next", iTunesNextTrack, 1);
+  cc.addButton("before", iTunesPreviousTrack, 1);
+  cc.addButton("volumeup", increaseVolume, 1);
+  cc.addButton("volumedown", decreaseVolume, 1);
 });
 
 function playPause()
