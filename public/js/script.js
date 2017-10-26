@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var timeout = 0;
 
+  $("#menu").on('click tap', iTunesStartStop);
   $("#play").on('click tap', playPause);
   $("#next").on('click tap', iTunesNextTrack);
   $("#before").on('click tap', iTunesPreviousTrack);
@@ -27,7 +28,7 @@ $(document).ready(function() {
       clearInterval(timeout);
       return false;
   });
-}); 
+});
 
 function playPause()
 {
@@ -52,4 +53,9 @@ function iTunesNextTrack()
 function iTunesPreviousTrack()
 {
   $.get("previous");
+}
+
+function iTunesStartStop()
+{
+  $.get("itunes");
 }

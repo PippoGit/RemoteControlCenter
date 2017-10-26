@@ -39,8 +39,7 @@ app.get('/playpause', function (req, res) {
 });
 
 app.get('/itunes', function (req, res) {
-  var c = req.query.cmd;
-  iTunes(c);
+  iTunes("quit");
   res.sendStatus(200);
 });
 
@@ -75,7 +74,10 @@ function mediaFunction(cmd)
       osa.execute("tell application \"System Events\" to key code 124");
       break;
     case 'previous track':
-    osa.execute("tell application \"System Events\" to key code 123");
+      osa.execute("tell application \"System Events\" to key code 123");
+      break;
+    case 'quit':
+      osa.execute("tell application \"iTunes\" to activate");
       break;
 
     default:
