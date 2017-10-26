@@ -27,7 +27,7 @@ $(document).ready(function() {
       clearInterval(timeout);
       return false;
   });
-});
+}); 
 
 function playPause()
 {
