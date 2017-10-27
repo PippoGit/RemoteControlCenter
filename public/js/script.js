@@ -10,52 +10,42 @@ $(document).ready(function() {
   cc.addButton("volumedown", decreaseVolume, ALLOW_LONGPRESS);
 });
 
-function playPause()
-{
+function playPause() {
   $.get("playpause");
 }
 
-function increaseVolume()
-{
+function increaseVolume() {
   $.get("volumeup");
 }
 
-function decreaseVolume()
-{
+function decreaseVolume() {
   $.get("volumedown");
 }
 
-function iTunesNextTrack()
-{
+function iTunesNextTrack() {
   $.get("next");
 }
 
-function iTunesPreviousTrack()
-{
+function iTunesPreviousTrack() {
   $.get("previous");
 }
 
-function iTunesStartStop()
-{
+function iTunesStartStop() {
   $.get("itunes");
 }
 
-function iTunesFastforwardStart()
-{
+function iTunesFastforwardStart() {
   $.get("fastforward/start");
 }
 
-function iTunesFastforwardStop()
-{
+function iTunesFastforwardStop() {
   $.get("fastforward/stop");
 }
 
-function iTunesRewindStart()
-{
+function iTunesRewindStart() {
   $.get("rewind/start");
 }
 
-function iTunesRewindStop()
-{
+function iTunesRewindStop() {
   $.get("rewind/stop");
 }

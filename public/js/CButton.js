@@ -19,19 +19,17 @@ CButton.prototype.setAction = function (action, option = 0, startAction, stopAct
     this.setLongPress(startAction, stopAction);
 };
 
-CButton.prototype.setLongPress = function (startAction, stopAction)
-{
+CButton.prototype.setLongPress = function (startAction, stopAction) {
   var timeout = 0, longpress = 0;
   this.startAction = startAction;
   this.stopAction = stopAction;
 
-  this.element.on('taphold', function(e){
+  this.element.on('taphold', function(e) {
       var button = cc.getButton(this.id);
       longpress = 1;
 
-      if(button.stopAction == undefined)
-      {
-        timeout = setInterval(function(){
+      if(button.stopAction == undefined) {
+        timeout = setInterval(function() {
             button.startAction();
         }, 500);
       }
@@ -41,9 +39,8 @@ CButton.prototype.setLongPress = function (startAction, stopAction)
       return false;
   });
 
-  this.element.on('touchend mouseup touchcancel', function(){
-      if(longpress)
-      {
+  this.element.on('touchend mouseup touchcancel', function() {
+      if(longpress) {
         if(stopAction == undefined)
           clearInterval(timeout);
         else
