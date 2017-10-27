@@ -1,5 +1,5 @@
-var INTERVAL_LONGPRESS = 1,
-    CUSTOM_LONGPRESS = 2;
+var INTERVAL_LONGPRESS  = 1,
+    CUSTOM_LONGPRESS    = 2;
 
 
 function Controller(id)
