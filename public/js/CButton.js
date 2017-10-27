@@ -13,9 +13,9 @@ CButton.prototype.setAction = function (action, option = 0, startAction, stopAct
   this.element.on('tap', this.action);
   this.isLongpress = option;
 
-  if(option == ALLOW_LONGPRESS)
+  if(option == INTERVAL_LONGPRESS)
     this.setLongPress(action);
-  if(option == CUSTOM_STARTSTOPACTION)
+  if(option == CUSTOM_LONGPRESS)
     this.setLongPress(startAction, stopAction);
 };
 
