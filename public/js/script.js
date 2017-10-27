@@ -1,7 +1,7 @@
 var cc;
 
 $(document).ready(function() {
-  cc = new Controller("container");
+  cc = new Controller("controller");
   cc.addButton("menu", iTunesStartStop);
   cc.addButton("play", playPause);
   cc.addButton("next", iTunesNextTrack, CUSTOM_STARTSTOPACTION, iTunesFastforwardStart, iTunesFastforwardStop);
