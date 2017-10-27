@@ -11,9 +11,8 @@ app.use(express.static('public'));
 app.listen(3000, function () {
   console.log('Remote Control Center started on port 3000.');
   console.log("Player: " + config.player);
-  console.log("To change main player: /player/<NAME>");
+  console.log("To change main player: localhost:3000/player/<NAME>");
   console.log("Supported players: iTunes, Spotify, VLC");
-  console.log("example: localhost/changeplayer/Spotify");
 });
 
 app.get('/changeplayer/:player', function (req, res) {
@@ -79,12 +78,7 @@ app.get('/itunes', function (req, res) {
 });
 
 function changeVolume(op) {
-  osa.execute("output volume of (get volume settings)", function(err, result, raw) {
-    if (err) return console.error(err);
-
-    var volume = (result + (op*5) >= 100)? 100:result+(op*5);
-    osa.execute("set volume output volume " + volume);
-  });
+  osa.execute("set volume output volume (output volume of (get volume settings) + " + (op*5) + ") --100%");
 }
 
 function iTunes(cmd)
@@ -107,9 +101,7 @@ function mediaFunction(cmd)
       break;
 
     case 'fast forward':
-      interval = setInterval(function(){
-        osa.execute("tell application \"System Events\" to key code 124");
-      }, 300);
+      osaInterval("tell application \"System Events\" to key code 124");
       break;
 
     case 'next track':
@@ -117,9 +109,7 @@ function mediaFunction(cmd)
       break;
 
     case 'rewind':
-      interval = setInterval(function(){
-        osa.execute("tell application \"System Events\" to key code 123");
-      }, 300);
+      osaInterval("tell application \"System Events\" to key code 123");
       break;
 
     case 'previous track':
@@ -135,6 +125,12 @@ function mediaFunction(cmd)
       break;
 
     default:
-      console.log("error");
+      console.error("error");
   }
+}
+
+function osaInterval(cmd) {
+  interval = setInterval(function(){
+    osa.execute(cmd);
+  }, 300);
 }
