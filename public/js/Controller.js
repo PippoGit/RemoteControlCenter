@@ -1,4 +1,6 @@
-var ALLOW_LONGPRESS = 1;
+var ALLOW_LONGPRESS = 1,
+    CUSTOM_STARTSTOPACTION = 2;
+
 
 function Controller(id)
 {
@@ -6,29 +8,18 @@ function Controller(id)
   this.buttons = [];
 }
 
-Controller.prototype.addButton = function(id, action, option = 0) {
-  var button = $("#" + id);
-
-  button.on('click tap', action);
-
-  if(option == ALLOW_LONGPRESS)
-  {
-    var timeout = 0;
-    button.on('touchstart mousedown click tap', function(e){
-        action();
-        if(e.type == "click")
-          return;
-        timeout = setInterval(function(){
-            action();
-        }, 500);
-        return false;
-    });
-
-    button.on('touchend mouseup touchcancel', function(){
-        clearInterval(timeout);
-        return false;
-    });
-  }
-
+Controller.prototype.addButton = function (id, action, option = 0, startAction, stopAction)  {
+  var button = new CButton(id);
+  button.setAction(action, option, startAction, stopAction);
   this.buttons.push(button);
 };
+
+Controller.prototype.getButton = function (id) {
+  var i = 0;
+  for(i=0; i<this.buttons.length; i++)
+  {
+    if(this.buttons[i].id == id)
+      return this.buttons[i];
+  }
+  return undefined;
+}
