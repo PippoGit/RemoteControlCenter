@@ -1,17 +1,17 @@
 function CButton(id) {
   this.id = id;
   this.element = $("#"+id)
-  this.isLongpress = 0;
+  this.longpress = DISABLED_LONGPRESS;
 
   this.action = undefined;
   this.startAction = undefined;
   this.stopAction = undefined;
 }
 
-CButton.prototype.setAction = function (action, option = 0, startAction, stopAction) {
+CButton.prototype.setAction = function (action, option = DISABLED_LONGPRESS, startAction, stopAction) {
   this.action = action;
   this.element.on('tap', this.action);
-  this.isLongpress = option;
+  this.longpress = option;
 
   if(option == INTERVAL_LONGPRESS)
     this.setLongPress(action);
