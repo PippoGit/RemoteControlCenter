@@ -4,13 +4,15 @@ var osa = require('node-osascript');
 var config = require('./config/default.json');
 var app = express();
 
+var interval = 0;
+
 app.use(express.static('public'));
 
 app.listen(3000, function () {
   console.log('Remote Control Center started on port 3000.');
   console.log("Player: " + config.player);
   console.log("To change main player: /player/<NAME>");
-  console.log("Supported players: iTunes, Spotify, vlc");
+  console.log("Supported players: iTunes, Spotify, VLC");
   console.log("example: localhost/changeplayer/Spotify");
 });
 
@@ -55,6 +57,22 @@ app.get('/playpause', function (req, res) {
   res.sendStatus(200);
 });
 
+app.get('/fastforward/:action', function (req, res) {
+  if(req.params.action == "stop")
+    iTunes("resume");
+  else
+    iTunes("fast forward");
+  res.sendStatus(200);
+});
+
+app.get('/rewind/:action', function (req, res) {
+  if(req.params.action == "stop")
+    iTunes("resume");
+  else
+    iTunes("rewind");
+  res.sendStatus(200);
+});
+
 app.get('/itunes', function (req, res) {
   iTunes("quit");
   res.sendStatus(200);
@@ -87,14 +105,33 @@ function mediaFunction(cmd)
     case 'playpause':
       osa.execute("tell application \"System Events\" to keystroke space");
       break;
+
+    case 'fast forward':
+      interval = setInterval(function(){
+        osa.execute("tell application \"System Events\" to key code 124");
+      }, 300);
+      break;
+
     case 'next track':
       osa.execute("tell application \"System Events\" to key code 124");
       break;
+
+    case 'rewind':
+      interval = setInterval(function(){
+        osa.execute("tell application \"System Events\" to key code 123");
+      }, 300);
+      break;
+
     case 'previous track':
       osa.execute("tell application \"System Events\" to key code 123");
       break;
+
     case 'quit':
       osa.execute("tell application \"" + config.player + "\" to activate");
+      break;
+
+    case 'resume':
+      clearInterval(interval);
       break;
 
     default:
