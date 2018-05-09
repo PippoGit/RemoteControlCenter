@@ -49,9 +49,11 @@ h1 {
   /* margin-left: 5px; */
   margin-right: 0;
   display: block;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* margin-top: 5px; */
   /* margin-bottom: 5px; */
+  padding: 0;
+  margin: 0;
   /* margin-right: 5px; */
 }
 
@@ -88,13 +90,13 @@ h1 {
     margin-right: 0;
     display: block;
     margin: 0 auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* margin-top: 5px; */
+    /* margin-bottom: 5px; */
     height: 30px;
     width: 70px;
     border: 0;
     position: absolute;
-    /* top: 10; */
+    top: 5px;
     left: 65px;
     /* top: 5px; */
 }
@@ -102,12 +104,12 @@ h1 {
 #volumedown {
     display: block;
     margin: 0 auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* margin-top: 5px; */
+    /* margin-bottom: 5px; */
     height: 30px;
     border: 0;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 65px;
     width: 70px;
 }
@@ -115,13 +117,13 @@ h1 {
 #wheel
 {
   border-radius: 50%;
-border: 1px solid grey;
-width: 200px;
-height: 200px;
-display: block;
-margin: 0 auto;
-overflow: hidden;
-position: relative;
+  border: 1px solid grey;
+  width: 198px;
+  height: 198px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }
 
 #next {
@@ -129,16 +131,15 @@ position: relative;
     display: block;
     margin: 0 auto;
     /* margin-top: 5px; */
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     height: 30px;
     width: 30px;
     border: 0;
     position: absolute;
     /* top: 10; */
-    right: 8px;
-
-    top: 50%;
-    margin-top: -15px;
+    right: 5px;
+    top: 85px;
+    /* margin-top: -15px; */
     /* top: 5px; */
 }
 
@@ -147,14 +148,16 @@ position: relative;
     display: block;
     margin: 0 auto;
     /* margin-top: 5px; */
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     height: 30px;
     width: 30px;
     border: 0;
     position: absolute;
     /* top: 10; */
-    left: 0;
-    top: 50%;
-    margin-top: -15px;
+    left: 5px;
+    top: 85px;
+    /* margin-top: -15px; */
+    /* margin: 0; */
+    /* padding: 0; */
     /* top: 5px; */
 }
