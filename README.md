@@ -1,6 +1,5 @@
 # RemoteControlCenter
-Remote media control for macOS (nodeJS + webapp).
-
+Remote controller for macOS with the look of the old Apple Remote (powered by nodeJS).
 
 <p align="center">
 <kbd>
